@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
 // const conString = 'postgres://USERNAME:PASSWORD@HOST:PORT';
-const conString = ''; // TODO: Don't forget to set your own conString
+const conString = 'postgres://tom:myPassword@localhost:5432/lab12'; // TODO: Don't forget to set your own conString
 const client = new pg.Client(conString);
 client.connect();
 client.on('error', err => console.error(err));
@@ -100,6 +100,7 @@ app.delete('/articles', (request, response) => {
 loadDB();
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}!`));
+
 
 
 //////// ** DATABASE LOADERS ** ////////

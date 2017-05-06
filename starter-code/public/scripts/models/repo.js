@@ -15,7 +15,7 @@
       $.get(user.repos_url + '?access_token=' + window.gitToken)
         .then(repoArr => {
           repos.all = Array.from(repoArr);
-          callback(repos.all);
+          callback(repos);
         });
     }), error => {
       console.log(error);

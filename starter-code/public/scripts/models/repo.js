@@ -14,8 +14,7 @@
     .then(user => {
       $.get(user.repos_url + '?access_token=' + window.gitToken)
         .then(repos => {
-          repos.forEach(repo => {
-            $('#repo-list').append(`<li>${repo.name}</li>`);
+          repos.all = repos;
           })
         }, error => {
           console.log(error);

@@ -10,8 +10,8 @@
     $about.find('ul').empty();
     $about.show().siblings().hide();
   };
-
-  // TODO: Remember that new Handlebars template? Let's compile it!
+  let render = Handlebars.compile($('#repo-template').text());
+  // DONE: Remember that new Handlebars template? Let's compile it!
   // Save the result in this `render` variable.
 
   repoView.index = function(repos) {

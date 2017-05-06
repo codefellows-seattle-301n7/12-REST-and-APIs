@@ -13,18 +13,19 @@
     $.get('https://api.github.com/user?access_token=' + window.gitToken)
       .then(user => {
         $.get(user.repos_url + '?access_token=' + window.gitToken)
-          .then(callback)
-          .then(repos => {
-            repos.forEach(repo => {
-              $('#repo-list').append(`<li>${repo.name}</li>`);
+          .then(repo => {
+            repo.forEach(results => {
+              repos.all.push(results);
+              // callback(repos);
             })
-          }, error => {
+            callback(repos);
+        }, error => {
             console.log(error);
           });
       }, error => {
         console.log(error);
       });
-  }();
+  };
 
   // REVIEW: Model method that filters the full collection for repos with a particular attribute.
   // You could use this to filter all repos that have a non-zero `forks_count`, `stargazers_count`, or `watchers_count`.

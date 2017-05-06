@@ -1,5 +1,5 @@
 'use strict';
-
+// console.log('hello from repo.js')
 (function(module) {
   const repos = {};
 
@@ -13,17 +13,15 @@
     $.get('https://api.github.com/user?access_token=' + window.gitToken)
     .then(user => {
       $.get(user.repos_url + '?access_token=' + window.gitToken)
-        .then(repos => {
-          repos.all = repos;
-          })
-        }, error => {
-          console.log(error);
+        .then(repoArr => {
+          repos.all = Array.from(repoArr);
+          callback(repos.all);
         });
-    }, error => {
+    }), error => {
       console.log(error);
-    });
-
-
+    };
+  }, error => {
+    console.log(error);
   };
 
   // REVIEW: Model method that filters the full collection for repos with a particular attribute.

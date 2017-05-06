@@ -30,12 +30,12 @@
     <script id="repo-template" type="text/x-handlebars-template">
       <li>
         <a href="{{html_url}}" target="_blank">
-          <h3>{{}}</h3>
+          <h3>{{name}}</h3>
         </a>
-        <p>Description: {{}}</p>
-        <p>Language: {{}}</p>
-        <p>Created: {{}}</p>
-        <p>Last updated: {{}}</p>
+        <p>Description: {{description}}</p>
+        <p>Language: {{language}}</p>
+        <p>Created: {{created_at}}</p>
+        <p>Last updated: {{updated_at}}</p>
         {{#if watchers_count}}
           <p>{{watchers_count}} watching this repo</p>
         {{/if}}
@@ -110,7 +110,10 @@
     <script src="/scripts/controllers/articleController.js"></script>
 
     <!-- TODO: Be sure to include any new script files: -->
+    <script src="/scripts/controllers/aboutController.js"></script>
+    <script src="/scripts/models/repo.js"></script>
+    <script src="/scripts/views/repoView.js"></script>
+    <script src = "/scripts/controllers/routes.js"></script>
 
-    <script src="/scripts/controllers/routes.js"></script>
   </body>
 </html>
